@@ -17,6 +17,11 @@ python3.9
 
 # Requirement
 
+| Package  | Version |
+| ------------- | ------------- |
+| pandas  | 1.4.4  |
+| numpy  | 1.21.5  |
+
 Package                       Version
 ------------------            ---------
 pandas                        1.4.4
