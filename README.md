@@ -34,5 +34,5 @@ glob2                         0.7
 * harashimna@ims.ac.jp
 
 # License
-It is made available under a CC-BY-NC-ND 4.0 International license.
+Our simulation code used in this study is provided under the MIT License.
 
