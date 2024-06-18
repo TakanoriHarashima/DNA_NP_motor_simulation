@@ -74,7 +74,7 @@ RNaseH_list = np.array([36])                 # RNase H condition [nM]
 SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
-**2. run the simulation:**  
+**2. Run the simulation:**  
 Open DNAmotor_simu_v5.03.py with Spyder.  
 Push F5 key to run the simulation.  
 
