@@ -40,9 +40,9 @@ Whole installation procedure typically takes ~1 hour on a normal desktop compute
   - https://docs.spyder-ide.org/current/installation.html
 
 **3. Install required python modules:**  
-  - Open a console and install required python modules
-  - pip install -r requirements.txt
-
+  - Open a console and install required python modules  
+    ```pip install -r requirements.txt```
+    
 **4. Run the simulation:**  
   - Download DNAmotor_simu_v5.02.py from Github.
   - Spyder -> File -> Open -> Select DNAmotor_simu_v5.02.py
