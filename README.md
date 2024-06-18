@@ -72,7 +72,7 @@ SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
 **2. run the simulation:**  
-Push F5 key to run the simulation.
+Push F5 key to run the simulation.  
 
 **3. Expected output:**  
 The simulation make folders as follow.  
@@ -100,7 +100,9 @@ itrace= 0                        # Trajectory ID to make the movie
 ###############################################################################
 MAKE_FIGURES = True # If True, the program generate every snapshots during simulation as png data.  
 MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.  
-```
+```  
+This program make the image of snapshot and concatenate them into the mp4 movie (see Supplementary Movie 4,5,6,7).
+
 
 # Author
 
