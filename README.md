@@ -86,7 +86,7 @@ The simulation make folders as follow.
         └─002
 </pre>
 You can see the progress of the simulation by looking the output figure files which will be generated in individual directories (i.e. '000', '001', '002').  
-Expected run time for demo on a normal desktop computer is 2 min/trace.  
+Expected run time for demo on a normal desktop computer is 2 min/trajectory.  
 
 **4. Make resulting movies:**  
 Download DNAmotor_simu_movie_maker_per_time_v04.py from Github and open with Spyder.
