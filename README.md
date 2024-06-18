@@ -104,6 +104,47 @@ MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.
 ```  
 This program make the image of snapshot and concatenate them into the mp4 movie (see Supplementary Movie 4,5,6,7).
 
+# Reproduction instructions  
+Here is the parameter set to reproduce our simulation described in Figure 2.
+```
+# Basic parameters
+globalfol = r'Directory\to\perform\DNAmotor\simulation'
+date = 'DATE'
+RNA_size = 3000                        # Full range of RNA substrate (px)  (default:2000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+N_simu = 50                             # Nunber of trajectory generate 
+frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
+foli=0                                 # ID of the condition of kinetic parameters (default:0)
+# Kinetic parameters
+khyb_list = np.array([0.3])                  # DNA/RNA Hybridization rate [s-1]
+konE_list = np.array([1.0]) *10**6           # RNase H binding rate [M-1 s-1]
+kcat_list = np.array([4])                    # RNA hydrolysis rate [s-1] 
+RNaseH_list = np.array([36,144,360,720,1440,3600,7200])                 # RNase H condition [nM]
+#######################
+SIMULATION = True # Run the new simulation
+SUMMERIZE = True # Output rough summary of the simulation
+```
+  
+Here is the parameter set to reproduce our simulation described in Supplementary Fig. 11-16.
+```
+# Basic parameters
+globalfol = r'Directory\to\perform\DNAmotor\simulation'
+date = 'DATE'
+RNA_size = 3000                        # Full range of RNA substrate (px)  (default:2000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+N_simu = 20                             # Nunber of trajectory generate 
+frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
+foli=0                                 # ID of the condition of kinetic parameters (default:0)
+# Kinetic parameters
+khyb_list = np.array([0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 5.0])                  # DNA/RNA Hybridization rate [s-1]
+konE_list = np.array([0.5, 1.0, 1.5, 2.0, 2.5]) *10**6           # RNase H binding rate [M-1 s-1]
+kcat_list = np.array([0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0])                    # RNA hydrolysis rate [s-1] 
+RNaseH_list = np.array([36,144,360,720,1440,3600,7200])                 # RNase H condition [nM]
+#######################
+SIMULATION = True # Run the new simulation
+SUMMERIZE = True # Output rough summary of the simulation
+```
+
 
 # Author
 
