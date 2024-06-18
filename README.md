@@ -59,7 +59,7 @@ globalfol = r'Directory\to\perform\DNAmotor\simulation'
 date = 'DATE'
 RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
 tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
-N_simu = 5                             # Nunber of trajectory generate (default:5)
+N_simu = 3                             # Nunber of trajectory generate 
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
 # Kinetic parameters
@@ -85,6 +85,7 @@ The simulation make folders as follow.
         └─002
 </pre>
 You can see the progress of the simulation by looking the output figure files which will be generated in individual directories (i.e. '000', '001', '002').  
+Expected run time for demo on a normal desktop computer is 2 min/trace.  
 
 **4. Make resulting movies:**  
 Download DNAmotor_simu_movie_maker_per_time_v04.py from Github and open with Spyder.
@@ -103,7 +104,7 @@ MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.
 
 # Author
 
-* Takanori Harashima
+* Dr. Takanori Harashima
 * Institute for Molecular Science, National Institutes of Natural Sciences, Okazaki, Aichi 444-8787, Japan
 * harashima@ims.ac.jp
 
