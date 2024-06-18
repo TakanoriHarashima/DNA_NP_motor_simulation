@@ -58,7 +58,7 @@ Just for a demo, here is the recommended parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
 date = 'DATE'
 RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
-tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:100000)
 N_simu = 3                             # Nunber of trajectory generate 
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
@@ -111,7 +111,7 @@ Here is the parameter set to reproduce our simulation described in Figure 2.
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
 date = 'DATE'
 RNA_size = 3000                        # Full range of RNA substrate (px)  (default:2000)
-tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:100000)
 N_simu = 50                             # Nunber of trajectory generate 
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
@@ -131,7 +131,7 @@ Here is the parameter set to reproduce our simulation described in Supplementary
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
 date = 'DATE'
 RNA_size = 3000                        # Full range of RNA substrate (px)  (default:2000)
-tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:100000)
 N_simu = 20                             # Nunber of trajectory generate 
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
