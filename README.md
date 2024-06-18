@@ -32,10 +32,10 @@ Python packages
 
 # Installation Guide
 Whole installation procedure takes approximately 1 hour on a normal desktop computer.
-**1. Install Anaconda:**
+**1. Install Anaconda:**  
   - https://www.anaconda.com/download
 
-**2. Open Spyder:**
+**2. Open Spyder:**  
   - To run the bundled version of Spyder after installing it with Anaconda, the recommended method on Windows is to launch it via the Start menu shortcut. On other platforms, open Anaconda Navigator, scroll to Spyder under Home and click Launch.
   - https://docs.spyder-ide.org/current/installation.html
 
