@@ -108,7 +108,7 @@ MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.
 This program make the image of snapshot and concatenate them into the mp4 movie (see Supplementary Movie 4,5,6,7).
 
 # Reproduction instructions  
-Here is the parameter set to reproduce our simulation shown in Figure 2.  
+Here is the parameter set for our simulation shown in Figure 2.  
 ```
 # Basic parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
@@ -128,7 +128,7 @@ SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
   
-Here is the parameter set to reproduce the data for the simulation-based fitting shown in Supplementary Fig. 11-16.
+Here is the parameter set for the simulation-based fitting shown in Supplementary Fig. 11-16.
 ```
 # Basic parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
