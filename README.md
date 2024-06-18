@@ -55,25 +55,29 @@ Just for a demo, here is the recommended parameters
 ```
 # Basic parameters
 globalfol = r'Directory\to\perform\DNAmotor\simulation'
-date = '20240618'
-RNA_size = 2000                        # Full range of RNA substrate
-tmax_simu = 100000                     # Uplimit for simulation (sec) 
-N_simu = 5                             # Nunber of trajectory generate
-frame_per_event = 1000                 # Span frame to check the progress of simulation
-foli=0                                 # ID of the condition of kinetic parameters
+date = 'DATE'
+RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+N_simu = 5                             # Nunber of trajectory generate (default:5)
+frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
+foli=0                                 # ID of the condition of kinetic parameters (default:0)
 # Kinetic parameters
 khyb_list = np.array([0.3])                  # DNA/RNA Hybridization rate [s-1]
 konE_list = np.array([1.0]) *10**6           # RNase H binding rate [M-1 s-1]
 kcat_list = np.array([4])                    # RNA hydrolysis rate [s-1] 
 RNaseH_list = np.array([36])                 # RNase H condition [nM]
+#######################
+SIMULATION = True # Run the new simulation
+SUMMERIZE = True # Output rough summary of the simulation
 ```
 2. run the simulation
 push F5 key to run the simulation
-3. Expected output
-The simulation make folders as follow.
+
+4. Expected output
+The simulation make folders as follow.  
 <pre>
 001_khyb=0.30_kcatE=4.0_konE=1.0x106.
-└─20240618_{'N_simu'= 5, 'tmax'= 100000, 'RNaseH'= 36, 'frame_per_event'= 1000}
+└─DATE_{'N_simu'= 5, 'tmax'= 100000, 'RNaseH'= 36, 'frame_per_event'= 1000}
     └─progress
         ├─000
         ├─001
