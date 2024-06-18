@@ -41,7 +41,7 @@ python3.9
   - pip install -r requirements.txt
 
 5. Run the simulation:
-  - Download DNAmotor_simu_v5.02.py from the repository.
+  - Download DNAmotor_simu_v5.02.py from Github.
   - Spyder -> File -> Open -> Select DNAmotor_simu_v5.02.py
   - Set parameters.
   - Run File (push F5 key) and simulation starts.
