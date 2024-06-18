@@ -100,8 +100,6 @@ itrace= 0                        # Trajectory ID to make the movie
 MAKE_FIGURES = True # If True, the program generate every snapshots during simulation as png data.  
 MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.  
 ```
-If MAKE_FIGURES is True, the program generate every snapshots during simulation as png data.  
-If MAKE_MOVIE is True, the program concatenate the images by ffmpeg.  
 
 # Author
 
