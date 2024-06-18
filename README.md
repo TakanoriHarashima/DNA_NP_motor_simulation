@@ -72,6 +72,7 @@ SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
 **2. run the simulation:**  
+Open DNAmotor_simu_v5.02.py with Spyder.  
 Push F5 key to run the simulation.  
 
 **3. Expected output:**  
