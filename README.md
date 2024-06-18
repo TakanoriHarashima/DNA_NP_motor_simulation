@@ -49,7 +49,7 @@ Whole installation procedure takes approximately 1 hour on a normal desktop comp
   - Run File (push F5 key) and simulation starts.
 
 # Demo
-1. Setting
+1. Setting  
 See the manuscript and parameters are described in Supplementary Table 3.  
 Just for a demo, here is the recommended parameters  
 ```
@@ -70,10 +70,10 @@ RNaseH_list = np.array([36])                 # RNase H condition [nM]
 SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
-2. run the simulation
+2. run the simulation  
 push F5 key to run the simulation
 
-4. Expected output
+3. Expected output  
 The simulation make folders as follow.  
 <pre>
 001_khyb=0.30_kcatE=4.0_konE=1.0x106.
