@@ -46,7 +46,7 @@ Whole installation procedure typically takes ~1 hour on a normal desktop compute
     
 **4. Run the simulation:**  
   - Download DNAmotor_simu_v5.02.py from Github.
-  - Spyder -> File -> Open -> Select DNAmotor_simu_v5.02.py
+  - Spyder -> File -> Open -> Select DNAmotor_simu_v5.03.py
   - Set parameters.
   - Run File (push F5 key) and simulation starts.
 
@@ -73,7 +73,7 @@ SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
 **2. run the simulation:**  
-Open DNAmotor_simu_v5.02.py with Spyder.  
+Open DNAmotor_simu_v5.03.py with Spyder.  
 Push F5 key to run the simulation.  
 
 **3. Expected output:**  
@@ -90,7 +90,7 @@ You can see the progress of the simulation by looking the output figure files wh
 Expected run time for demo on a normal desktop computer is 2 min/trajectory.  
 
 **4. Make resulting movies:**  
-Download DNAmotor_simu_movie_maker_per_time_v04.py from Github and open with Spyder.
+Download DNAmotor_simu_movie_maker_per_time_v05.py from Github and open with Spyder.
 Set the parameter. Here is an example.
 ```
 workfol = r'Directory\to\perform\DNAmotor\simulation\001_khyb=0.30_kcatE=4.0_konE=1.0x106'
