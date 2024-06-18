@@ -164,7 +164,7 @@ print ("DNA_size",DNA_size)
 globalfol = r'G:\マイドライブ\ronbun\DNAmotor\240611_GitHub_upload'
 date = 'DATE'
 RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
-tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:100000)
 N_simu = 3                             # Nunber of trajectory generate (default:5)
 frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
 foli=0                                 # ID of the condition of kinetic parameters (default:0)
