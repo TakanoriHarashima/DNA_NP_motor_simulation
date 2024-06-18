@@ -16,9 +16,10 @@ Details of the algorithm and the simulation parameters are described in the manu
   - Anaconda 3
   - python 3.9
   - Spyder IDE 5.4.1
+  - ffmpeg 4.2.3
 
 # Requirement
-
+Python packages
 | Package  | Version |
 | ------------- | ------------- |
 | pandas  | 1.4.4  |
@@ -42,14 +43,14 @@ Whole installation procedure takes approximately 1 hour on a normal desktop comp
   - Open a console and install required python modules
   - pip install -r requirements.txt
 
-5. Run the simulation:
+4. Run the simulation:
   - Download DNAmotor_simu_v5.02.py from Github.
   - Spyder -> File -> Open -> Select DNAmotor_simu_v5.02.py
   - Set parameters.
   - Run File (push F5 key) and simulation starts.
 
 # Demo
-1. Setting  
+1. Setting:  
 See the manuscript and parameters are described in Supplementary Table 3.  
 Just for a demo, here is the recommended parameters  
 ```
@@ -70,10 +71,10 @@ RNaseH_list = np.array([36])                 # RNase H condition [nM]
 SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
-2. run the simulation  
+2. run the simulation:  
 push F5 key to run the simulation
 
-3. Expected output  
+3. Expected output:  
 The simulation make folders as follow.  
 <pre>
 001_khyb=0.30_kcatE=4.0_konE=1.0x106.
@@ -81,10 +82,26 @@ The simulation make folders as follow.
     └─progress
         ├─000
         ├─001
-        ├─002
-        ├─003
-        └─004
+        └─002
 </pre>
+You can see the progress of the simulation by looking the output figure files which generate in individual directories (i.e. '000', '001', '002').  
+
+4. Make resulting movies:
+Download DNAmotor_simu_movie_maker_per_time_v04.py from Github and open with Spyder.
+Set the parameter. Here is an example.
+```
+workfol = r'Directory\to\perform\DNAmotor\simulation\001_khyb=0.30_kcatE=4.0_konE=1.0x106'
+path_list = [workfol + os.sep + r"DATE_{'N_simu'= 3, 'tmax'= 100000, 'RNaseH'= 36, 'frame_per_event'= 1000}"]
+fps = 20                         # Frame per second, adjust to experimental conditions
+dt_timecourse = 500              # Range to show time-course [sec]
+itrace= 0                        # Trajectory ID to make the movie 
+###############################################################################
+###############################################################################
+MAKE_FIGURES = True # If True, the program generate every snapshots during simulation as png data.  
+MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.  
+```
+If MAKE_FIGURES is True, the program generate every snapshots during simulation as png data.  
+If MAKE_MOVIE is True, the program concatenate the images by ffmpeg.  
 
 # Author
 
