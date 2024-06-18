@@ -97,7 +97,6 @@ plt.rcParams['lines.linewidth'] = 1
 # v1.11 : リソ基板の設定を適用した。帯状のパターンをまっすぐ走ったよー！
 # v1.12 : net displacementと速度換算の時に距離を実空間変換する
 # v1.12 : ガチ計算用にparameterセットのcsvを吐き出すようにした
-
 # v1.17 : imagemagickを用いてgif動画を見やすくした
 # v1.18 : gif動画にトラジェクトリを別表示、重心移動可能領域の描画を行う, debagモードをデフォルトにした。ani.saveは使わずsubprocess.Popenのほうがプログラムが速い (imagemagickはインストール後、環境変数にパスを通さないとよくわかんないエラーを吐くので注意！)
 # v1.19 体裁変更、全部のfigureのzoom倍率を等しくした。
@@ -115,13 +114,7 @@ plt.rcParams['lines.linewidth'] = 1
 # v3.11 : 1000eventごとに表面の状態分布をgzファイルに出力
 # v4    : イテレーションで考慮する計算範囲を限定して計算速度を向上
 # v5.01 : 複数の速度定数をいっぺんに計算できるように改善
-###############################################################################
-RNA_size = 2000 # シミュレーションに使うRNA表面の範囲
-tmax_simu = 100000 # sec シミュレーションする上限時間 
-N_simu = 50 # simulationするサンプル数
-frame_per_event = 1000 # v11 gifアニメの1フレームあたりのイベント数
-####################################################################################
-####################################################################################
+
 #金ナノparticle直径
 particle_size = 100 # nm
 r_particle = particle_size / 2 # nm  
@@ -159,46 +152,37 @@ print('path_radius (nm)',path_radius)
 print ('r_path nm', r_path *pixel_to_nm)
 print ('r_path px', r_path )
 print ("DNA_size",DNA_size)
-####################################################################################
-###############################################################################
-# もうパラメーターチューニングがめんどくさいのでglobal fitするよ！
-# khyb = {0.2,0.3,0.4}
-# khybE = {0.5,1.0,1.5,2.0,2.5 x106}
-# kcatE = {3,4,5,6}
-# くらいでkhyb固定の行列表をつくる　3枚 x 5x4 = 60 simulation set x 7 [RNase H] condition = 420 times x 10 trace = 4200 traceをシミュレーションする
-# khybで並列化できるので、20 simulation set
-# 1 data set = 30 min だとすると 10 hourかかる。1dayで終わる
-# kerssemakersのstepfindが律速になる → pause length と step sizeさえわかればよいのでdatapointの上限値(例えば開始から30000くらいまでとか)に設定して長いトレースは中断する
-# 決めたパラメータセットに基づいて時間制限のないシミュレーションを行う
 
+#########################################################################################################################################################################################
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
 
-globalfol = r'Directory\to\perform\DNAmotor\simulation'
+#globalfol = r'Directory\to\perform\DNAmotor\simulation'
+# Basic parameters
+globalfol = r'G:\マイドライブ\ronbun\DNAmotor\240611_GitHub_upload'
+date = 'DATE'
+RNA_size = 2000                        # Full range of RNA substrate (px)  (default:2000)
+tmax_simu = 100000                     # Uplimit for simulation (sec)  (default:1000)
+N_simu = 3                             # Nunber of trajectory generate (default:5)
+frame_per_event = 1000                 # Span frame to check the progress of simulation (default:1000)
+foli=0                                 # ID of the condition of kinetic parameters (default:0)
+# Kinetic parameters
+khyb_list = np.array([0.3])                  # DNA/RNA Hybridization rate [s-1]
+konE_list = np.array([1.0]) *10**6           # RNase H binding rate [M-1 s-1]
+kcat_list = np.array([4])                    # RNA hydrolysis rate [s-1] 
+RNaseH_list = np.array([36])                 # RNase H condition [nM]
+#######################
+SIMULATION = True # Run the new simulation
+SUMMERIZE = True # Output rough summary of the simulation
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+#########################################################################################################################################################################################
 colortable_RNA = ListedColormap(['0.7','g','r','w']) # ['Unbound', 'Bound', 'Hydrolyzed', 'Empty']
-
-#######################################################
-# フォルダの番号を何番から始めるか　default = 0 → 001から始める
-foli=0
-khyb_list = np.array([0.3,1.2,2.4,4.8])
-konE_list = np.array([1.0]) *10**6
-kcat_list = np.array([4,16,32,64])
-RNaseH_list = np.array([36,144,360,720,1440,3600,7200])
-#######################################################
-
-#!!!!!!!!!!!!!!!!
-SIMULATION = True # simulationを回す
-SUMMERIZE = False # 簡単なsimulation結果を図にまとめる
-MAKE_MOVIE = False # Figureから動画を作成する
-#!!!!!!!!!!!!!!!!
-#######################
-date = '20240123'
-#######################
-#########################################################################################################################################################################################
-#########################################################################################################################################################################################
-#########################################################################################################################################################################################
-#########################################################################################################################################################################################
-#########################################################################################################################################################################################
-#########################################################################################################################################################################################
 
 
 def CENTER_TRANSLOCATE(cx, cy, DNA_state, cx_list, cy_list ,i ):
@@ -1114,21 +1098,6 @@ for khyb in khyb_list:
                         PLOT_ALL_TRAJ(df_traj_sum, -800, 800,400)
                         PLOT_ALL_TRAJ(df_traj_sum, -400, 400,200)
                         PLOT_ALL_TRAJ(df_traj_sum, -200, 200,100)
-                    
-                if MAKE_MOVIE:
-                    df_traj = pd.DataFrame()
-                    print(N_simu)
-                    for i_traj in range(N_simu):
-                        # Popenにするとpythonとは独立に動画作成をしてくれる
-                        print(trajfol)
-                        trace_i_str = ('0000'+str(i_traj))[-3:]
-                      #  command = r'ffmpeg -y -framerate 100 -i "'+trace_i_str+os.sep+trace_i_str+ '_%06d.png" -c:v libx264 -preset slow -crf 22 '+trace_i_str+ '.avi'
-                        command = r'ffmpeg -y -framerate 100 -i "'+trace_i_str+os.sep+trace_i_str+ '_%06d.png" -vf crop=iw:680:0:0 -pix_fmt yuv420p -c:v libx264 -preset slow  -crf 18 '+trace_i_str+ '.mp4'
-                        
-                        print(command)
-                        p = subprocess.run(command, stdout=subprocess.PIPE, shell=True, cwd=trajfol,universal_newlines=True)
-                    #print(fdafdafdsafd)
-                        # ffmpeg -y -framerate 100 -i "000_%06d.png" -c:v mjpeg -q:v 0 -pix_fmt yuv420p -crf 22 000.avi
                 #################################################################################
                 #################################################################################
                 #################################################################################

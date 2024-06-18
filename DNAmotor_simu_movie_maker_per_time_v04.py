@@ -85,9 +85,14 @@ plt.rcParams['lines.linewidth'] = 1
 #plt.rcParams['axes.xmargin'] = 0
 #plt.rcParams['axes.ymargin'] = 0
 
+# simulation v5.01以降
+# RNAの分布, eventの起きた座標,eventの種類, 重心の座標, さえわかれば動画は作製できる
+# シミュレーションの結果のcsvファイルからmovieを作成する
+# v03 eventごとではなく単位時間でmovieを作成する
+# *RNA_state.csv : 最終フレームののデータ → 0以外を1に初期化する
 
 ###############################################################################
-RNA_size = 3000 # シミュレーションに使うRNA表面の範囲
+RNA_size = 2000 # シミュレーションに使うRNA表面の範囲
 tmax_simu = 100000 # sec シミュレーションする上限時間 
 N_simu = 10 # simulationするサンプル数
 frame_per_event = 1000 # v11 gifアニメの1フレームあたりのイベント数
@@ -124,48 +129,45 @@ R_mobile_pixel = R_mobile_nm / pixel_to_nm
 # 反応半径
 r_path = path_radius / pixel_to_nm  
 DNA_size = round(r_path) 
-
 print ("path_DNA_molecules",path_DNA_molecules)
 print ("path_RNA_molecules",path_RNA_molecules)
 print ('R_mobile_pixel', R_mobile_pixel)
 print ('R_mobile nm', R_mobile_nm)
-
 print('path_radius (nm)',path_radius)
 print ('r_path nm', r_path *pixel_to_nm)
 print ('r_path px', r_path )
 print ("DNA_size",DNA_size)
-####################################################################################
-###############################################################################
-# simulation v5.01以降
-# RNAの分布, eventの起きた座標,eventの種類, 重心の座標, さえわかれば動画は作製できる
-# シミュレーションの結果のcsvファイルからmovieを作成する
-# v03 eventごとではなく単位時間でmovieを作成する
-colortable_RNA = ListedColormap(['0.7','g','r','w']) # ['Unbound', 'Bound', 'Hydrolyzed', 'Empty']
-# *RNA_state.csv : 最終フレームののデータ → 0以外を1に初期化する
-globalfol = r'G:\マイドライブ\DNAmotor_simulation\DNAmotor_simu_v5.01\240129_movie' # この直下のファイルを選ぶ
-workfol = globalfol + os.sep + '001_khyb=0.30_kcatE=4.0_konE=1.0x106'
-path_list = sorted(glob.glob(workfol + '/*'),key=len)
-print(path_list)
 
-path_list = [r"Example_khyb=0.30_kcatE=4.0_konE=1.0x106\20240123_{'N_simu'= 20, 'tmax'= 100000, 'RNaseH'= 36, 'frame_per_event'= 1000}"]
-fps = 20
-dt = 1/20 * 10
-dt_timecourse = 500 # s
-itrace= 3
+#########################################################################################################################################################################################
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+workfol = r'G:\マイドライブ\ronbun\DNAmotor\240611_GitHub_upload\001_khyb=0.30_kcatE=4.0_konE=1.0x106'
+path_list = [workfol + os.sep + r"DATE_{'N_simu'= 3, 'tmax'= 100000, 'RNaseH'= 36, 'frame_per_event'= 1000}"]
+fps = 20                         # Frame per second, adjust to experimental conditions
+dt_timecourse = 500              # Range to show time-course [sec]
+itrace= 0                        # Trajectory ID to make the movie 
 ###############################################################################
 ###############################################################################
-MAKE_FIGURES = True
-MAKE_MOVIE = False
-###############################################################################
-###############################################################################
+MAKE_FIGURES = True # If True, the program generate every snapshots during simulation as png data.  
+MAKE_MOVIE = True   # If True, the program concatenate the images by ffmpeg.  
+
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+# Parameters Parameters Parameters Parameters Parameters Parameters Parameters #
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#########################################################################################################################################################################################
+dt = 1/fps * 10
+colortable_RNA = ListedColormap(['0.7','g','r','w']) # ['Unbound', 'Bound', 'Hydrolyzed', 'Empty']
 
 if MAKE_FIGURES:
     for path in path_list:
         print(path)
         datas = sorted(glob.glob(path + os.sep + 'progress' + os.sep + '*.csv'))
         datas =  [f for f in datas if f[-8:-4].isnumeric()]
-        datas_RNA = sorted(glob.glob(path + os.sep + 'progress' + os.sep + '*_RNAstate.csv'))
-        
+        datas_RNA = sorted(glob.glob(path + os.sep + 'progress' + os.sep + '*_RNAstate.gz'))
+        print(datas)
         datas = [datas[itrace]]
         datas_RNA = [datas_RNA[itrace]]
         
@@ -183,7 +185,9 @@ if MAKE_FIGURES:
             folder_maker(trace_fol)
     
             df = pd.read_csv(data)
-            RNA_state = np.array(pd.read_csv(data_RNA, index_col = 0))
+           # RNA_state = np.array(pd.read_csv(data_RNA, index_col = 0))
+            RNA_state = np.array(pd.read_pickle(data_RNA))
+
             
             RNA_state = np.where(RNA_state != 3, 0, 3)
             
