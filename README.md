@@ -12,11 +12,11 @@ bioRxiv: https://www.biorxiv.org/content/10.1101/2024.05.23.595615v2
 Details of the algorithm and description of the simulation parameters are referred in the manuscript (https://www.biorxiv.org/content/10.1101/2024.05.23.595615v2). First, a two-dimensional pixel matrix was defined to model the RNAs on the glass surface. Pixel size was normalized by the DNA density on the AuNP. RNAs were randomly distributed with a ratio of the RNA density to the DNA density. Reaction at a single RNA site is assumed to contain three sequential elementary steps: DNA/RNA hybridization, RNase H binding to DNA/RNA duplex, and RNA hydrolysis. The reaction proceeds within the accessible area of DNA with the radius of 28.0 nm. Rate constants of the three elementary steps, konDNA/RNA, k E, and kcatE are the simulation parameters. Dwell time for each elementary step at each RNA site is determined by a random sampling from the exponential distribution: P(τ) = kexp(-kt), and the site with the shortest dwell time is changed to the next state. Simulation steps proceeded in units of reaction events. Constraint of the motor position was considered by introducing mobile region of each DNA/RNA hybrid (25.2 nm). The motor position was determined randomly within the region where all mobile regions overlap. Unless all mobile regions overlapped, the motor position was fixed. 
 
 # Environment Tested
-  - Windows 10 Pro
-  - Anaconda 3
-  - python 3.9
-  - Spyder IDE 5.4.1
-  - ffmpeg 4.2.3
+  - Windows 10 Pro  
+  - Anaconda 3  
+  - python 3.9  
+  - Spyder IDE 5.4.1  
+  - ffmpeg 4.2.3  
 (Non-standard hardware is not required.)  
 
 # Requirement
