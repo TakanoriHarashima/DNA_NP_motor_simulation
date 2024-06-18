@@ -33,25 +33,19 @@ python3.9
 https://www.anaconda.com/download
 
 2. Open Spyder:
-To run the bundled version of Spyder after installing it with Anaconda, the recommended method on Windows is to launch it via the Start menu shortcut. On other platforms, open Anaconda Navigator, scroll to Spyder under Home and click Launch.
-https://docs.spyder-ide.org/current/installation.html
+  - To run the bundled version of Spyder after installing it with Anaconda, the recommended method on Windows is to launch it via the Start menu shortcut. On other platforms, open Anaconda Navigator, scroll to Spyder under Home and click Launch.
+  - https://docs.spyder-ide.org/current/installation.html
 
 3. Install required python modules:
-pip install pandas==1.4.4
-pip install numpy==2.2.5
-pip install scipy==2.2.5
-pip install Django==2.2.5
-pip install Django==2.2.5
-pip install Django==2.2.5
-pip install Django==2.2.5
-
+  - Open a console and install required python modules
+  - pip install -r requirements.txt
 
 5. Run the simulation:
-Download DNAmotor_simu_v5.02.py from the repository.
-Spyder -> File -> Open
-Select DNAmotor_simu_v5.02.py and open.
-Set parameters.
-Run File (push F5 key) and simulation starts.
+  - Download DNAmotor_simu_v5.02.py from the repository.
+  - Spyder -> File -> Open
+  - Select DNAmotor_simu_v5.02.py and open.
+  - Set parameters.
+  - Run File (push F5 key) and simulation starts.
 
 
 
