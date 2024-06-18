@@ -31,7 +31,7 @@ Python packages
 | glob2  | 0.7  |
 
 # Installation Guide
-Whole installation procedure takes approximately 1 hour on a normal desktop computer.  
+Whole installation procedure typically takes ~1 hour on a normal desktop computer.  
 **1. Install Anaconda:**  
   - https://www.anaconda.com/download
 
