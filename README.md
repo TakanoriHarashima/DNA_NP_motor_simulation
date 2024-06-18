@@ -72,7 +72,7 @@ SIMULATION = True # Run the new simulation
 SUMMERIZE = True # Output rough summary of the simulation
 ```
 2. run the simulation:  
-push F5 key to run the simulation
+Push F5 key to run the simulation.
 
 3. Expected output:  
 The simulation make folders as follow.  
@@ -84,9 +84,9 @@ The simulation make folders as follow.
         ├─001
         └─002
 </pre>
-You can see the progress of the simulation by looking the output figure files which generate in individual directories (i.e. '000', '001', '002').  
+You can see the progress of the simulation by looking the output figure files which will be generated in individual directories (i.e. '000', '001', '002').  
 
-4. Make resulting movies:
+**4. Make resulting movies:**
 Download DNAmotor_simu_movie_maker_per_time_v04.py from Github and open with Spyder.
 Set the parameter. Here is an example.
 ```
