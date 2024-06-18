@@ -17,6 +17,7 @@ Details of the algorithm and description of the simulation parameters are referr
   - python 3.9
   - Spyder IDE 5.4.1
   - ffmpeg 4.2.3
+(Non-standard hardware is not required.)  
 
 # Requirement
 Python packages
