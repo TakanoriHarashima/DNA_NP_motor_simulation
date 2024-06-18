@@ -30,6 +30,7 @@ Details of the algorithm and the simulation parameters are described in the manu
 | glob2  | 0.7  |
 
 # Installation Guide
+Whole installation procedure takes approximately 1 hour on a normal desktop computer.
 1. Install Anaconda:
   - https://www.anaconda.com/download
 
@@ -46,6 +47,13 @@ Details of the algorithm and the simulation parameters are described in the manu
   - Spyder -> File -> Open -> Select DNAmotor_simu_v5.02.py
   - Set parameters.
   - Run File (push F5 key) and simulation starts.
+
+# Demo
+1. Simulation parameters recommended
+Described Supplementary Table 3. in the manuscript
+2. Expected output
+
+(Expected run time is apploximately 5 min/trajectory on a "normal" desktop computer)
 
 # Author
 
